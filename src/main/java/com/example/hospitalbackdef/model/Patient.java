@@ -24,13 +24,19 @@ public class Patient {
 
     private String appointment;
 
-    private List<String> appointments;
-
-
-    //Metodo creado para añadir citas a la list appointments
-    public void addAppointment(String appointment){
-        this.appointments.add(appointment);
+    public Patient(Long patientId, String name, int age, Long dni, String appointment) {
+        this.patientId = patientId;
+        this.name = name;
+        this.age = age;
+        this.dni = dni;
+        this.appointment = appointment;
     }
+
+    @ManyToOne
+    @JoinColumn(name = "specialityId")
+    private Speciality speciality;
+
+
 
 
 }

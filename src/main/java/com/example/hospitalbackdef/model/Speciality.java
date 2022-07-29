@@ -22,9 +22,14 @@ public class Speciality {
             cascade = CascadeType.ALL,
             fetch = FetchType.EAGER
     )
+
     private Set<Patient> patients;
 
-
+    public Speciality(Long specialityId, String name, String physician) {
+        this.specialityId = specialityId;
+        this.name = name;
+        this.physician = physician;
+    }
 
     //Metodo creado para añadir pacientes a la list patients
     public Speciality addPatient(Patient patient){
