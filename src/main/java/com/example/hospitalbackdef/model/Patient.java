@@ -1,6 +1,7 @@
 package com.example.hospitalbackdef.model;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.List;
@@ -8,6 +9,7 @@ import java.util.List;
 @Entity(name = "Patient")
 @Table(name = "patient")
 @Data
+@NoArgsConstructor
 public class Patient {
 
     @Id
@@ -24,12 +26,13 @@ public class Patient {
 
     private String appointment;
 
-    public Patient(Long patientId, String name, int age, Long dni, String appointment) {
+    public Patient(Long patientId, String name, int age, Long dni, String appointment,Speciality speciality) {
         this.patientId = patientId;
         this.name = name;
         this.age = age;
         this.dni = dni;
         this.appointment = appointment;
+        this.speciality = speciality;
     }
 
     @ManyToOne

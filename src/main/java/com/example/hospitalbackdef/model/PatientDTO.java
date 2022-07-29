@@ -26,13 +26,14 @@ public class PatientDTO {
         this.age = age;
         this.dni = dni;
         this.appointments = appointments;
+        this.speciality = speciality;
     }
 
     private List<String> appointments;
 
-    //Metodo creado para añadir citas a la list appointments
+    /*//Metodo creado para añadir citas a la list appointments
     public void addAppointment(String appointment){
         this.appointments.add(appointment);
-    }
+    }*/
 
 }

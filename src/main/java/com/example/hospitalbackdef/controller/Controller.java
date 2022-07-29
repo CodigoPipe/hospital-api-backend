@@ -1,6 +1,8 @@
 package com.example.hospitalbackdef.controller;
 
 
+import com.example.hospitalbackdef.model.Patient;
+import com.example.hospitalbackdef.model.PatientDTO;
 import com.example.hospitalbackdef.model.Speciality;
 import com.example.hospitalbackdef.model.SpecialityDTO;
 import com.example.hospitalbackdef.service.HospitalService;
@@ -28,5 +30,14 @@ public class Controller {
     public SpecialityDTO createSpeciality(@RequestBody SpecialityDTO speciality){
         return service.createSpeciality(speciality);
     }
+
+    @PostMapping("create/patient")
+    public PatientDTO createPatient(@RequestBody PatientDTO patientDTO){
+        return service.createPatient(patientDTO);
+    }
+
+
+
+
 
 }

@@ -1,6 +1,7 @@
 package com.example.hospitalbackdef.model;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -8,6 +9,7 @@ import java.util.Set;
 @Entity(name = "Speciality")
 @Table(name = "speciality")
 @Data
+@NoArgsConstructor
 public class Speciality {
 
     @Id

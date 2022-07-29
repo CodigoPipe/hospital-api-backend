@@ -11,7 +11,7 @@ public interface HospitalService {
 
     SpecialityDTO createSpeciality(SpecialityDTO specialityDTO);
 
-    SpecialityDTO createPatient(PatientDTO patientDTO);
+    PatientDTO createPatient(PatientDTO patientDTO);
 
     SpecialityDTO updateSpeciality(SpecialityDTO specialityDTO);
 

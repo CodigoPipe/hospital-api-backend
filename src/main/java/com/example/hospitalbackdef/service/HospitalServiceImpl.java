@@ -9,6 +9,7 @@ import com.example.hospitalbackdef.repository.SpecialityRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,8 +27,7 @@ public class HospitalServiceImpl implements HospitalService{
     //methods to convert from dto to entity and viceversa
     private Speciality returnSpeciality(SpecialityDTO specialityDTO){
 
-        Speciality speciality = new Speciality(specialityDTO.getSpecialityId(),specialityDTO.getName(),specialityDTO.getPhysician());
-        return speciality;
+        return new Speciality(specialityDTO.getSpecialityId(),specialityDTO.getName(),specialityDTO.getPhysician());
     }
     private SpecialityDTO returnSpecialityDTO(Speciality speciality){
 
@@ -44,13 +44,13 @@ public class HospitalServiceImpl implements HospitalService{
 
     private Patient returnPatient(PatientDTO patientDTO){
 
-        Patient patient = new Patient(patientDTO.getPatientId(), patientDTO.getName(), patientDTO.getAge(), patientDTO.getDni(), returnString(patientDTO.getAppointments()));
+        Patient patient = new Patient(patientDTO.getPatientId(), patientDTO.getName(), patientDTO.getAge(), patientDTO.getDni(), returnString(patientDTO.getAppointments()), patientDTO.getSpeciality());
         return patient;
     }
 
     private PatientDTO returnPatientDTO(Patient patient){
 
-        PatientDTO patientDTO = new PatientDTO(patient.getPatientId(), patient.getName(), patient.getAge(), patient.getDni(), null,patient.getSpeciality());
+        PatientDTO patientDTO = new PatientDTO(patient.getPatientId(), patient.getName(), patient.getAge(), patient.getDni(), Arrays.stream(patient.getAppointment().split(",")).toList(),patient.getSpeciality());
         return patientDTO;
     }
 
@@ -67,10 +67,14 @@ public class HospitalServiceImpl implements HospitalService{
     }
 
     @Override
-    public SpecialityDTO createPatient(PatientDTO patientDTO) {
-        Patient patient = returnPatient(patientDTO);
+    public PatientDTO createPatient(PatientDTO patientDTO) {
 
-        return null;
+        Patient patient = returnPatient(patientDTO);
+        Speciality speciality = specialityRepo.findById(patient.getSpeciality().getSpecialityId()).get();
+
+        patient.setSpeciality(speciality);
+
+        return returnPatientDTO(patientRepo.save(patient));
     }
 
     @Override
