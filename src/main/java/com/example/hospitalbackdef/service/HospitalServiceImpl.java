@@ -99,6 +99,6 @@ public class HospitalServiceImpl implements HospitalService{
 
     @Override
     public List<Speciality> findAllSpecialities() {
-        return null;
+        return specialityRepo.findAll();
     }
 }

@@ -24,7 +24,6 @@ public class Speciality {
             cascade = CascadeType.ALL,
             fetch = FetchType.EAGER
     )
-
     private Set<Patient> patients;
 
     public Speciality(Long specialityId, String name, String physician) {

@@ -36,6 +36,30 @@ public class Controller {
         return service.createPatient(patientDTO);
     }
 
+    @DeleteMapping("delete/speciality")
+    public void deleteSpeciality(@RequestBody SpecialityDTO specialityDTO){
+
+    }
+
+    @DeleteMapping("delete/patient")
+    public void deletePatient(@RequestBody PatientDTO patientDTO){
+
+    }
+
+    @PutMapping("update/speciality")
+    public SpecialityDTO updateSpeciality(@RequestBody SpecialityDTO specialityDTO){
+        return null;
+    }
+
+    @PutMapping("update/patient")
+    public SpecialityDTO updatePatient(@RequestBody PatientDTO patientDTO){
+            return null;
+    }
+
+
+
+
+
 
 
 
