@@ -11,11 +11,11 @@ public interface HospitalService {
 
     SpecialityDTO createSpeciality(SpecialityDTO specialityDTO);
 
-    PatientDTO createPatient(PatientDTO patientDTO);
+    PatientDTO createUpdatePatient(PatientDTO patientDTO);
 
     SpecialityDTO updateSpeciality(SpecialityDTO specialityDTO);
 
-    SpecialityDTO updatePatient(PatientDTO patientDTO);
+    //PatientDTO updatePatient(PatientDTO patientDTO);
 
     void deleteSpeciality(SpecialityDTO specialityDTO);
 

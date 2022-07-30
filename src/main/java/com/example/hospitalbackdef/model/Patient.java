@@ -25,14 +25,14 @@ public class Patient {
 
     private Long numberOfAppointments;
 
-    private String appointment;
+    private String appointments;
 
-    public Patient(Long patientId, String name, int age, Long dni, String appointment,Speciality speciality) {
+    public Patient(Long patientId, String name, int age, Long dni, String appointments,Speciality speciality) {
         this.patientId = patientId;
         this.name = name;
         this.age = age;
         this.dni = dni;
-        this.appointment = appointment;
+        this.appointments = appointments;
         this.speciality = speciality;
     }
 

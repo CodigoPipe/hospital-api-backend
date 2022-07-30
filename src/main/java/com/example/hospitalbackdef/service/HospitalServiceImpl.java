@@ -50,7 +50,7 @@ public class HospitalServiceImpl implements HospitalService{
 
     private PatientDTO returnPatientDTO(Patient patient){
 
-        PatientDTO patientDTO = new PatientDTO(patient.getPatientId(), patient.getName(), patient.getAge(), patient.getDni(), Arrays.stream(patient.getAppointment().split(",")).toList(),patient.getSpeciality());
+        PatientDTO patientDTO = new PatientDTO(patient.getPatientId(), patient.getName(), patient.getAge(), patient.getDni(), Arrays.stream(patient.getAppointments().split(",")).toList(),patient.getSpeciality());
         return patientDTO;
     }
 
@@ -67,7 +67,7 @@ public class HospitalServiceImpl implements HospitalService{
     }
 
     @Override
-    public PatientDTO createPatient(PatientDTO patientDTO) {
+    public PatientDTO createUpdatePatient(PatientDTO patientDTO) {
 
         Patient patient = returnPatient(patientDTO);
         Speciality speciality = specialityRepo.findById(patient.getSpeciality().getSpecialityId()).get();
@@ -79,13 +79,21 @@ public class HospitalServiceImpl implements HospitalService{
 
     @Override
     public SpecialityDTO updateSpeciality(SpecialityDTO specialityDTO) {
-        return null;
+
+        Speciality speciality = returnSpeciality(specialityDTO);
+
+        return returnSpecialityDTO(specialityRepo.save(speciality));
+
     }
 
-    @Override
-    public SpecialityDTO updatePatient(PatientDTO patientDTO) {
-        return null;
-    }
+    /*@Override
+    public PatientDTO updatePatient(PatientDTO patientDTO) {
+
+        Patient patient = returnPatient(patientDTO);
+
+
+
+    }*/
 
     @Override
     public void deleteSpeciality(SpecialityDTO specialityDTO) {

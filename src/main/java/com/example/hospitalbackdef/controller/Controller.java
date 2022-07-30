@@ -26,7 +26,7 @@ public class Controller {
         return service.findAllSpecialities();
     }
 
-    @GetMapping("specialities")
+    @GetMapping("patients")
     public List<Patient> getAllpatients(){
         return service.findAllPatients();
     }
@@ -37,8 +37,8 @@ public class Controller {
     }
 
     @PostMapping("create/patient")
-    public PatientDTO createPatient(@RequestBody PatientDTO patientDTO){
-        return service.createPatient(patientDTO);
+    public PatientDTO createUpdatePatient(@RequestBody PatientDTO patientDTO){
+        return service.createUpdatePatient(patientDTO);
     }
 
     @DeleteMapping("delete/speciality")
@@ -53,18 +53,13 @@ public class Controller {
 
     @PutMapping("update/speciality")
     public SpecialityDTO updateSpeciality(@RequestBody SpecialityDTO specialityDTO){
-        return null;
+        return service.updateSpeciality(specialityDTO);
     }
 
     @PutMapping("update/patient")
-    public SpecialityDTO updatePatient(@RequestBody PatientDTO patientDTO){
-            return null;
+    public PatientDTO updatePatient(@RequestBody PatientDTO patientDTO){
+            return service.createUpdatePatient(patientDTO);
     }
-
-
-
-
-
 
 
 
