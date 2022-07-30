@@ -1,5 +1,6 @@
 package com.example.hospitalbackdef.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -35,11 +36,13 @@ public class Patient {
         this.speciality = speciality;
     }
 
-    @ManyToOne
+    @ManyToOne(
+            fetch = FetchType.LAZY,
+            optional = false
+    )
     @JoinColumn(name = "specialityId")
+    @JsonBackReference
     private Speciality speciality;
-
-
 
 
 }

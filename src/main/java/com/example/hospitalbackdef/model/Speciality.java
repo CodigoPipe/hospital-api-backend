@@ -1,9 +1,13 @@
 package com.example.hospitalbackdef.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 @Entity(name = "Speciality")
@@ -21,10 +25,13 @@ public class Speciality {
     private String physician;
 
     @OneToMany(
-            cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER
+            cascade = CascadeType.REMOVE,
+            fetch = FetchType.EAGER,
+            targetEntity = Patient.class,
+            mappedBy = "speciality"
     )
-    private Set<Patient> patients;
+    @JsonManagedReference
+    private List<Patient> patients = new ArrayList<>();
 
     public Speciality(Long specialityId, String name, String physician) {
         this.specialityId = specialityId;
