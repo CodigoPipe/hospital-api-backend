@@ -17,9 +17,9 @@ public interface HospitalService {
 
     //PatientDTO updatePatient(PatientDTO patientDTO);
 
-    void deleteSpeciality(SpecialityDTO specialityDTO);
+    void deleteSpeciality(Long specialityId);
 
-    void deletePatient(PatientDTO patientDTO);
+    void deletePatient(Long patietId);
 
 
 

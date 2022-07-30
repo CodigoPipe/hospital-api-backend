@@ -96,12 +96,18 @@ public class HospitalServiceImpl implements HospitalService{
     }*/
 
     @Override
-    public void deleteSpeciality(SpecialityDTO specialityDTO) {
+    public void deleteSpeciality(Long specialityId) {
+
+       Speciality speciality = specialityRepo.findById(specialityId).get();
+       specialityRepo.delete(speciality);
 
     }
 
     @Override
-    public void deletePatient(PatientDTO patientDTO) {
+    public void deletePatient(Long patientId) {
+
+          Patient patient = patientRepo.findById(patientId).get();
+          patientRepo.delete(patient);
 
     }
 
