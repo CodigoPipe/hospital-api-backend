@@ -25,5 +25,7 @@ public interface HospitalService {
 
     List<Speciality> findAllSpecialities();
 
+    List<Patient> findAllPatients();
+
 
 }

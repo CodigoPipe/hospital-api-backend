@@ -101,4 +101,11 @@ public class HospitalServiceImpl implements HospitalService{
     public List<Speciality> findAllSpecialities() {
         return specialityRepo.findAll();
     }
+
+    @Override
+    public List<Patient> findAllPatients() {
+        return patientRepo.findAll();
+    }
+
+
 }

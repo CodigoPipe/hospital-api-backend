@@ -40,9 +40,9 @@ public class Speciality {
     }
 
     //Metodo creado para añadir pacientes a la list patients
-    public Speciality addPatient(Patient patient){
+    /*public Speciality addPatient(Patient patient){
         this.patients.add(patient);
         return this;
-    }
+    }*/
 
 }

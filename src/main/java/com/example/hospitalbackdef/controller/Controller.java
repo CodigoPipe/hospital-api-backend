@@ -21,9 +21,14 @@ public class Controller {
     @Autowired
     private HospitalService service;
 
-    @GetMapping
+    @GetMapping("specialities")
     public List<Speciality> getAllSpecialities(){
         return service.findAllSpecialities();
+    }
+
+    @GetMapping("specialities")
+    public List<Patient> getAllpatients(){
+        return service.findAllPatients();
     }
 
     @PostMapping("create/speciality")
